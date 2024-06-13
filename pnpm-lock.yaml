@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  colors:
+    specifier: ^1.4.0
+    version: 1.4.0
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
@@ -22,6 +25,9 @@ dependencies:
     version: 6.37.3(pg-hstore@2.3.4)(pg@8.12.0)
 
 devDependencies:
+  '@types/colors':
+    specifier: ^1.2.1
+    version: 1.2.1
   '@types/dotenv':
     specifier: ^8.2.0
     version: 8.2.0
@@ -87,6 +93,13 @@ packages:
     dependencies:
       '@types/connect': 3.4.38
       '@types/node': 20.14.2
+    dev: true
+
+  /@types/colors@1.2.1:
+    resolution: {integrity: sha512-7jNkpfN2lVO07nJ1RWzyMnNhH/I5N9iWuMPx9pedptxJ4MODf8rRV0lbJi6RakQ4sKQk231Fw4e2W9n3D7gZ3w==}
+    deprecated: This is a stub types definition. colors provides its own type definitions, so you don't need this installed.
+    dependencies:
+      colors: 1.4.0
     dev: true
 
   /@types/connect@3.4.38:
@@ -278,6 +291,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  /colors@1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
+    engines: {node: '>=0.1.90'}
 
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
