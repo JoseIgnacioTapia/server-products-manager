@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { body, validationResult } from "express-validator";
+import { body } from "express-validator";
 import { createProduct } from "./handlers/product";
+import { handleInputErrors } from "./middleware";
 
 const router: Router = Router();
 
@@ -22,6 +23,7 @@ router.post(
     .withMessage("El campo nombre de Producto es obligatorio")
     .custom((value) => value > 0)
     .withMessage("Precio no válido"),
+  handleInputErrors,
   createProduct
 );
 
