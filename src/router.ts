@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { body, validationResult } from "express-validator";
 import { createProduct } from "./handlers/product";
 
 const router: Router = Router();
@@ -8,7 +9,21 @@ router.get("/", (req, res) => {
   res.json("Desde GET");
 });
 
-router.post("/", createProduct);
+router.post(
+  "/",
+  // Validación
+  body("name")
+    .notEmpty()
+    .withMessage("El campo nombre de Producto es obligatorio"),
+  body("price")
+    .isNumeric()
+    .withMessage("Valor no válido")
+    .notEmpty()
+    .withMessage("El campo nombre de Producto es obligatorio")
+    .custom((value) => value > 0)
+    .withMessage("Precio no válido"),
+  createProduct
+);
 
 router.patch("/", (req, res) => {
   res.json("Desde PATCH");
