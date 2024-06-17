@@ -26,4 +26,10 @@ server.use(express.json());
 
 server.use("/api/products", router);
 
+server.get("/api", (req, res) => {
+  res.json({
+    message: "Bienvenido a la API",
+  });
+});
+
 export default server;

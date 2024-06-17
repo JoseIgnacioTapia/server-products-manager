@@ -38,10 +38,16 @@ router.post(
   createProduct
 );
 
-router.patch("/:id", updateAvailability);
+router.patch(
+  "/:id",
+  param("id").isInt().withMessage("ID no válido"),
+  handleInputErrors,
+  updateAvailability
+);
 
 router.put(
   "/:id",
+  param("id").isInt().withMessage("ID no válido"),
   body("name")
     .notEmpty()
     .withMessage("El campo nombre de Producto es obligatorio"),
@@ -59,8 +65,6 @@ router.put(
   updateProduct
 );
 
-router.delete("/", (req, res) => {
-  res.json("Desde DELETE");
-});
+router.delete("/:id", param("id").isInt().withMessage("ID no válido"));
 
 export default router;
