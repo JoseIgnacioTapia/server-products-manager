@@ -19,6 +19,7 @@ describe("GET /api", () => {
     expect(res.headers["content-type"]).toMatch(/json/);
     expect(res.body.message).toBe("Bienvenido a la API");
 
-    // console.log(res.status);
+    expect(res.status).not.toBe(404);
+    expect(res.body.msg).not.toBe("desde api");
   });
 });
