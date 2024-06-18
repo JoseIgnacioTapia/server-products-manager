@@ -8,12 +8,13 @@ async function connectDB() {
   try {
     await db.authenticate();
     db.sync();
-    console.log(colors.bgGreen.magenta.bold("Conexión a la bd exitosa"));
+    // console.log(colors.bgGreen.magenta.bold("Conexión a la bd exitosa"));
   } catch (error) {
     console.log(error);
-    console.log(
-      colors.bgRed.white("Hubo un error al conectar a la base de datos.")
-    );
+    console
+      .log
+      //   colors.bgRed.white("Hubo un error al conectar a la base de datos.")
+      ();
   }
 }
 connectDB();
