@@ -6,6 +6,7 @@ import {
   getProductById,
   updateProduct,
   updateAvailability,
+  deleteProduct,
 } from "./handlers/product";
 import { handleInputErrors } from "./middleware";
 
@@ -69,7 +70,7 @@ router.delete(
   "/:id",
   param("id").isInt().withMessage("ID no válido"),
   handleInputErrors,
-  updateProduct
+  deleteProduct
 );
 
 export default router;

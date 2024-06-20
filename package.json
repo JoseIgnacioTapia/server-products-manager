@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon exec node --loader ts-node/esm src/index.ts",
     "test": "jest --detectOpenHandles",
+    "test:coverage": "pnpm run pretest && jest --detectOpenHandles --coverage",
     "pretest": "ts-node ./src/data --clear"
   },
   "keywords": [],

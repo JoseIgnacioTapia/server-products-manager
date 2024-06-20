@@ -39,7 +39,7 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const product = await Product.findByPk(id);
+  const product: Product | null = await Product.findByPk(id);
 
   if (!product) {
     return res.status(404).json({ error: "Producto no encontrado" });
@@ -77,5 +77,5 @@ export const deleteProduct = async (req: Request, res: Response) => {
 
   // Sin usar borrado logico
   await product.destroy();
-  res.json({ data: "Productos Eliminados" });
+  res.json({ data: "Producto Eliminado" });
 };
