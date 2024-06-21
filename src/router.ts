@@ -36,6 +36,25 @@ const router: Router = Router();
  *                      example: true
  */
 
+/**
+ * @swagger
+ * /api/products:
+ *      get:
+ *          summary: Get all products
+ *          tags:
+ *              - Products
+ *          description: Return a List of products
+ *          responses:
+ *              200:
+ *                  description: Successful response
+ *                  content:
+ *                          application/json:
+ *                                schema:
+ *                                  type: array
+ *                                  items:
+ *                                      $ref: '#/components/schemas/Product'
+ */
+
 // Routing
 router.get("/", getProducts);
 
