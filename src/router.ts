@@ -114,6 +114,8 @@ router.get(
  *                              type: number
  *                              example: 399
  *                          availability:
+ *                              type: boolean
+ *                              example: true
  *      responses:
  *          201:
  *              description: Successful response. Product created successfully
@@ -145,6 +147,49 @@ router.patch(
   updateAvailability
 );
 
+/**
+ * @swagger
+ * /api/products/{id}:
+ *  put:
+ *      summary: Update a product with user input
+ *      tags:
+ *          - Products
+ *      description: Returns the updated product
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: The ID of the product to update
+ *            required: true
+ *            schema:
+ *                type: integer
+ *      requestBody:
+ *            required: true
+ *            content:
+ *                application/json:
+ *                    schema:
+ *                      type: object
+ *                      properties:
+ *                          name:
+ *                              type: string
+ *                              example: "Monitor Curvo 49 Pulgadas"
+ *                          price:
+ *                              type: number
+ *                              example: 399
+ *                          availability:
+ *                              type: boolean
+ *                              example: true
+ *        responses:
+ *          200:
+ *              description: Succesful response
+ *              content:
+ *                  aplication/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Product'
+ *          400:
+ *              description: Bad request - Invalid ID or Invalid input data
+ *          404:
+ *              description: Product Not found
+ */
 router.put(
   "/:id",
   param("id").isInt().withMessage("ID no válido"),
