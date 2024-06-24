@@ -140,6 +140,33 @@ router.post(
   createProduct
 );
 
+/**
+ * @swagger
+ * /api/products/{id}:
+ *  patch:
+ *      summary: Update the availability of a product
+ *      tags:
+ *          - Products
+ *      description: Update the availability of a product
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: The ID of the product to update
+ *            required: true
+ *            schema:
+ *                type: integer
+ *      responses:
+ *          200:
+ *              description: Successful response
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Product'
+ *          400:
+ *              description: Bad Request - Invalid ID or Invalid input data
+ *          404:
+ *              description: Product not found
+ */
 router.patch(
   "/:id",
   param("id").isInt().withMessage("ID no válido"),
@@ -210,6 +237,34 @@ router.put(
   updateProduct
 );
 
+/**
+ * @swagger
+ * /api/products/{id}:
+ *  delete:
+ *      summary: Delete the availability of a product
+ *      tags:
+ *          - Products
+ *      description: Return a confirmation message
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            description: The ID of the product to update
+ *            required: true
+ *            schema:
+ *                type: integer
+ *      responses:
+ *          200:
+ *              description: Successful response
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: string
+ *                          value: 'Producto Eliminado'
+ *          400:
+ *              description: Bad Request - Invalid ID or Invalid input data
+ *          404:
+ *              description: Product not found
+ */
 router.delete(
   "/:id",
   param("id").isInt().withMessage("ID no válido"),
