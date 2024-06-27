@@ -48,11 +48,11 @@ const router: Router = Router();
  *              200:
  *                  description: Successful response
  *                  content:
- *                          application/json:
- *                                schema:
- *                                  type: array
- *                                  items:
- *                                      $ref: '#/components/schemas/Product'
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Product'
  */
 
 // Routing
@@ -190,10 +190,10 @@ router.patch(
  *            schema:
  *                type: integer
  *      requestBody:
- *            required: true
- *            content:
- *                application/json:
- *                    schema:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
  *                      type: object
  *                      properties:
  *                          name:
@@ -205,11 +205,11 @@ router.patch(
  *                          availability:
  *                              type: boolean
  *                              example: true
- *        responses:
+ *      responses:
  *          200:
  *              description: Succesful response
  *              content:
- *                  aplication/json:
+ *                  application/json:
  *                      schema:
  *                          $ref: '#/components/schemas/Product'
  *          400:
@@ -259,7 +259,7 @@ router.put(
  *                  application/json:
  *                      schema:
  *                          type: string
- *                          value: 'Producto Eliminado'
+ *                          example: 'Producto Eliminado'
  *          400:
  *              description: Bad Request - Invalid ID or Invalid input data
  *          404:
