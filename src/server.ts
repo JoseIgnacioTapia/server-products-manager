@@ -12,9 +12,9 @@ export async function connectDB() {
   try {
     await db.authenticate();
     db.sync();
-    // console.log(colors.bgGreen.magenta.bold("Conexión a la bd exitosa"));
+    console.log(colors.bgGreen.magenta.bold("Conexión a la bd exitosa"));
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     console.log(
       colors.bgRed.white("Hubo un error al conectar a la base de datos.")
     );
@@ -28,7 +28,10 @@ const server: Application = express();
 // Permitir conexiones
 const corsOptions: CorsOptions = {
   origin: function (origin, callback) {
-    if (origin === process.env.FRONTEND_URL) {
+    console.log("origin", origin);
+    console.log("callback", process.env.FRONTEND_URL);
+
+    if (origin === undefined || origin === process.env.FRONTEND_URL) {
       callback(null, true);
     } else {
       callback(new Error("Error de cors"));
